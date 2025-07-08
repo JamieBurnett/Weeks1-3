@@ -153,6 +153,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newPosition: {x: 3, y: 0, z: 1}
+  moveDir: {x: 0, y: 0, z: 0}
+  gameCamera: {fileID: 473475191}
+  speed: 0.2
 --- !u!212 &394494170
 SpriteRenderer:
   m_ObjectHideFlags: 0
