@@ -18,7 +18,7 @@ public class Chaser : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        mySprite = GetComponent<SpriteRenderer>();
+        
     }
 
     // Update is called once per frame
@@ -26,6 +26,9 @@ public class Chaser : MonoBehaviour
     {
         Vector3 mouseWorldPos = gameCamera.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
+        bool xMaxExceeded = gameCamera.WorldToScreenPoint(transform.position).x > Screen.width;
+        bool xMinExceeded = gameCamera.WorldToScreenPoint(transform.position).x < 0;
+
         if (Input.GetMouseButton(0))
         {
             moveDir = (mouseWorldPos - transform.position) * speed;
@@ -38,6 +41,9 @@ public class Chaser : MonoBehaviour
         {
             moveDir = (transform.position - mouseWorldPos) * speed;
         }
+        Debug.Log("Position:" + transform.position.x +  "Out of bounds left?: " + xMinExceeded + " Out of bounds right?: " + xMaxExceeded);
+        
+
     }
 
     private void FixedUpdate()
