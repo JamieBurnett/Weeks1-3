@@ -28,8 +28,15 @@ public class Chaser : MonoBehaviour
         mouseWorldPos.z = 0f;
         if (Input.GetMouseButton(0))
         {
-            transform.position = mouseWorldPos;
-            //moveDir = (mouseWorldPos - transform.position) * speed;
+            moveDir = (mouseWorldPos - transform.position) * speed;
+        }
+        if (Vector3.Distance(transform.position,mouseWorldPos) < 0.5) //to stop the square from going off into infinity
+        {
+            moveDir = new Vector3(0,0,0);
+        }
+        if (Input.GetMouseButton(1))
+        {
+            moveDir = (transform.position - mouseWorldPos) * speed;
         }
     }
 
@@ -38,6 +45,7 @@ public class Chaser : MonoBehaviour
         //I don't believe fixedupdate has been brought up at this point
         //but it's better for motion/physics consistency, apologies if this isn't allowed.
         
-        //transform.position += moveDir; (I will use this in the next step)
+        transform.position += moveDir;
+        
     }
 }
