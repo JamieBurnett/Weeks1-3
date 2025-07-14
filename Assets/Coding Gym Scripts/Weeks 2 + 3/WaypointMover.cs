@@ -41,10 +41,12 @@ public class WaypointMover : MonoBehaviour
             float distance = 100;
             foreach(Transform i in Waypoints)
             {
+                Debug.Log("Object being checked: " + i + "distance: " + Vector3.Distance(mouseWorldPos, i.position));
                 if (Vector3.Distance(mouseWorldPos, i.position) < distance)
                 {
                     closest = i.gameObject;
                     distance = Vector3.Distance(i.position, mouseWorldPos);
+                    Debug.Log("closest object: "+ closest + ", distance"+ distance);
                 }
             }
             if(index >= Waypoints.Count-1)

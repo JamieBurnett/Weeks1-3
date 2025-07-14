@@ -358,7 +358,7 @@ GameObject:
   - component: {fileID: 607982908}
   - component: {fileID: 607982909}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +773,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1243936968
 Transform:
   m_ObjectHideFlags: 0
@@ -1274,7 +1274,7 @@ Transform:
   m_GameObject: {fileID: 1463508295}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -5.91, y: -3.05, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1371,7 +1371,7 @@ Transform:
   m_GameObject: {fileID: 1473911739}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.0800186}
+  m_LocalPosition: {x: -4.47, y: 1.31, z: 0.0800186}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2090,11 +2090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441008073563474211, guid: 33d9e0c7cb902f8429ea3117eef34c25, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.15842986
+      value: -7.87
       objectReference: {fileID: 0}
     - target: {fileID: 7441008073563474211, guid: 33d9e0c7cb902f8429ea3117eef34c25, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.8358831
+      value: -4.1
       objectReference: {fileID: 0}
     - target: {fileID: 7441008073563474211, guid: 33d9e0c7cb902f8429ea3117eef34c25, type: 3}
       propertyPath: m_LocalPosition.z

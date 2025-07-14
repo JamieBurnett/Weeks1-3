@@ -18,7 +18,7 @@ public class ColorChanger : MonoBehaviour
     {
         Vector3 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0;
-        if (Vector3.Distance(mouseWorldPos, transform.position) < transform.localScale.x*0.7)
+        if (Vector3.Distance(mouseWorldPos, transform.position) < transform.localScale.x*0.5)
         {
             GetComponent<SpriteRenderer>().color = Color.red;
             if (Input.GetMouseButtonDown(0))
