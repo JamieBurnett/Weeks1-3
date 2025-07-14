@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/First Scene.unity
+    path: Assets/Scenes/First SceneJamie.unity
     guid: a52432a379c94064abc13f60db25c808
   m_configObjects: {}
