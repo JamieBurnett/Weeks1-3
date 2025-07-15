@@ -7,6 +7,8 @@ public class Cannon : MonoBehaviour
     public GameObject cannonball;
     public float reloadTime;
     public float knockback;
+    public float cannonballSpeed;
+    public Color cannonballColor;
 
     private float cooldown;
 
@@ -28,13 +30,19 @@ public class Cannon : MonoBehaviour
         mousePosWorld.z = 0;
         if (Input.GetMouseButtonDown(0) && cooldown <=0)
         {
-            Instantiate(cannonball,transform.position,Quaternion.identity);
-            cooldown = reloadTime;
-            endPos = transform.position;
-            transform.right = mousePosWorld - transform.position;
-            transform.position += Vector3.Normalize(transform.position - mousePosWorld) *knockback;
-            startPos = transform.position;
-            timePass = 0;
+            GameObject cannonballObj = Instantiate(cannonball, transform.position, Quaternion.identity);
+            SpriteRenderer cannonBallSpriteRenderer = cannonballObj.GetComponent<SpriteRenderer>();
+            if(cannonBallSpriteRenderer != null)
+            {
+                cannonBallSpriteRenderer.color = cannonballColor;
+            }                
+            Cannonball cannonballScript = cannonballObj.GetComponent<Cannonball>();
+            if(cannonballScript != null)
+            {
+                cannonballScript.moveDur = cannonballSpeed;
+            }
+
+            fireKnockback(mousePosWorld);
         }
         if(cooldown > 0)
         {
@@ -42,5 +50,15 @@ public class Cannon : MonoBehaviour
             transform.position = Vector3.Lerp(startPos, endPos, timePass);
             cooldown -= Time.deltaTime;
         }
+    }
+
+    private void fireKnockback (Vector3 mousePosWorld) //we absolutely havent covered making functions but having extra things for fun was starting to bloat the actual code
+    {
+        cooldown = reloadTime;
+        endPos = transform.position;
+        transform.right = mousePosWorld - transform.position;
+        transform.position += Vector3.Normalize(transform.position - mousePosWorld) * knockback;
+        startPos = transform.position;
+        timePass = 0;
     }
 }
