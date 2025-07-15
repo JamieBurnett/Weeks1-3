@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class Instructor : MonoBehaviour
 {
+    public float startValue;
+    public float endValue;
+    public float currentTime = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,7 @@ public class Instructor : MonoBehaviour
     void Update()
     {
         
+        float output = Mathf.Lerp(startValue,endValue,currentTime);
+        Debug.Log(output);
     }
 }
