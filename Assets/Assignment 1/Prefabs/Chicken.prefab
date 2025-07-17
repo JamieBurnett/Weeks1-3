@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3377876770021867578}
   - component: {fileID: 7116742152030831507}
+  - component: {fileID: 2670330616800944737}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -84,3 +85,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2670330616800944737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4725931092526694636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdae6e77bf029fe42b7f3da1463a1d9f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
