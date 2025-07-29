@@ -13,12 +13,12 @@ public class Conveyor : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Space)) //spawns chicken every time the spacebar is pressed. The chicken will use the reference to this script we give it to add itself to the chicken list after it finishes falling, allowing it to be moved along.
-        {
-            GameObject newChicken = Instantiate(chicken, new Vector3(transform.position.x, transform.position.y + chickenSpawnHeight, transform.position.z), Quaternion.identity);
-            newChicken.GetComponent<ChickenTracker>().conveyorRef = this;
-            newChicken.GetComponent<ChickenTracker>().fallDistance = chickenSpawnHeight - 0.3f;
-        }
+        //if (Input.GetKeyDown(KeyCode.Space)) //spawns chicken every time the spacebar is pressed. The chicken will use the reference to this script we give it to add itself to the chicken list after it finishes falling, allowing it to be moved along.
+        //{
+        //    GameObject newChicken = Instantiate(chicken, new Vector3(transform.position.x, transform.position.y + chickenSpawnHeight, transform.position.z), Quaternion.identity);
+        //    newChicken.GetComponent<ChickenTracker>().conveyorRef = this;
+        //    newChicken.GetComponent<ChickenTracker>().fallDistance = chickenSpawnHeight - 0.3f;
+        //}
 
         if (Input.GetKey(KeyCode.RightArrow)) //moves chicken on the conveyor left or right based on input
         {
