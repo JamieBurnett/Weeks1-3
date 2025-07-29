@@ -21,6 +21,7 @@ public class QualityChecker : MonoBehaviour
                 ChickenTracker nugget = i.GetComponent<ChickenTracker>();
                 if(nugget.ovenTime > cookTimeTarget && nugget.ovenTime < burnTime) score++;
                 if (nugget.cuts == 1) score++;
+                if (nugget.batterLayers == 1) score++;
                 SetScoreText(score);
             }
         }
@@ -28,7 +29,7 @@ public class QualityChecker : MonoBehaviour
 
     /// <summary>
     /// takes in the score of the chicken which is currently being judged.
-    /// sets the score text to BAD, OK, or PERFECT, and changes it's color to red, yellow, or green, respectively, based on the score
+    /// sets the score text to BAD, OK, GOOD, or PERFECT, and changes it's color to red, grey, yellow, or green, respectively, based on the score
     /// </summary>
     /// <param name="score"></param>
     private void SetScoreText(int score)
@@ -40,10 +41,14 @@ public class QualityChecker : MonoBehaviour
                 ScoreText.text = "BAD!";
                 break;
             case 1:
-                ScoreText.color = Color.yellow;
+                ScoreText.color = Color.gray;
                 ScoreText.text = "OK!";
                 break;
             case 2:
+                ScoreText.color = Color.yellow;
+                ScoreText.text = "GOOD!";
+                break;
+            case 3:
                 ScoreText.color = Color.green;
                 ScoreText.text = "PERFECT!!";
                 break;
