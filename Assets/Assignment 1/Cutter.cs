@@ -8,6 +8,7 @@ public class Cutter : MonoBehaviour
 
     public Sprite[] nuggetShapes; //a list of potential shapes to cut nuggets into
     public Sprite uncutChickenSpr; //the default sprite for chicken
+    public Sprite poorlyCutChickenSpr; //the sprite for chicken thats been overcut
 
     public float speed; //speed the cutter drops at
 
@@ -49,9 +50,17 @@ public class Cutter : MonoBehaviour
             {
                 foreach (GameObject i in conveyorRef.Chickens)  //then for ALL chickens in range, we change them to one of the nugget shapes from our list, but only if they currently have the default chicken sprite
                 {
-                    if(Vector3.Distance(i.transform.position,transform.position) < transform.localScale.x / 2 && i.GetComponent<SpriteRenderer>().sprite == uncutChickenSpr)
+                    if(Vector3.Distance(i.transform.position,transform.position) < transform.localScale.x / 2 )
                     {
-                        i.GetComponent<SpriteRenderer>().sprite = nuggetShapes[Random.Range(0, nuggetShapes.Length)];
+                        if(i.GetComponent<SpriteRenderer>().sprite == uncutChickenSpr)
+                        {
+                            i.GetComponent<SpriteRenderer>().sprite = nuggetShapes[Random.Range(0, nuggetShapes.Length)];
+                        }
+                        else
+                        {
+                            i.GetComponent<SpriteRenderer>().sprite = poorlyCutChickenSpr;
+                        }
+                        i.GetComponent<ChickenTracker>().cuts += 1;
                     }                    
                 }
                 step++;

@@ -11,6 +11,8 @@ public class ChickenTracker : MonoBehaviour
     public Conveyor conveyorRef; // a reference to the conveyor
 
     public bool falling = true; //used when the chicken is being dropped. starts as true as the chicken is spawned in the air.
+    
+    public int cuts; //tracks how many times this chicken has been cut before
 
     private float fallenDistance; //used to track the distance the chicken has fallen so far
     
