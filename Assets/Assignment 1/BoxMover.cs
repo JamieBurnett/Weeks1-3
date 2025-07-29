@@ -5,13 +5,14 @@ using UnityEngine;
 public class BoxMover : MonoBehaviour
 {
     public bool move = false; //used to tell the box to start moving offscreen to the right
+    public bool falling; //used to make the box fall into frame on spawn
+
+    public Conveyor conveyorRef;//used for access to the list of chickens
 
     public float fallDistance; //how far to fall
     public float fallSpeed; //how fast to fall
 
     private float fallenDistance; //how far the box has fallen so far
-
-    private bool falling; //used to make the box fall into frame on spawn
 
     private float moveDelayTimer; //used to offset the box slightly before it moves, to ensure the chicken gets into it
     private float moveDelay = 0.5f; //the time of the delay (private so that it can be universally set, but not different per box)

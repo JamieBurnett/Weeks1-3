@@ -32,7 +32,14 @@ public class BoxStation : MonoBehaviour
             if (Vector3.Distance(i.transform.position, new Vector3(transform.position.x, i.transform.position.y, transform.position.z)) < boxWidth / 2) //checks if the  chicken is close enough to fall, then if so, tells it to fall into the box station
             {
                 chickensToRemove.Add(i);
-                i.GetComponent<ChickenTracker>().fallDistance = i.transform.position.y - transform.position.y;
+                if (currentBox.GetComponent<BoxMover>().falling)
+                {
+                    i.GetComponent<ChickenTracker>().fallDistance = i.transform.position.y - transform.position.y+10;
+                }
+                else
+                {
+                    i.GetComponent<ChickenTracker>().fallDistance = i.transform.position.y - transform.position.y;
+                }
                 i.GetComponent<ChickenTracker>().falling = true;
             }
         }
@@ -42,14 +49,16 @@ public class BoxStation : MonoBehaviour
            conveyorRef.Chickens.Remove(i);
            Destroy(i, 0.5f); //then remove the game object as the chicken has been "packed" into a box
         }
-        if(chickensInBox >= chickensPerBox) //once the box is full, send it out, and spawn a new box
-        {
-            chickensInBox = 0;
-            currentBox.GetComponent<BoxMover>().move = true;
-            Destroy(currentBox,10); //destroy the box at some point after it moves offscreen. When isn't as important as that it gets cleaned up.
-            
-            currentBox = Instantiate(boxFab, boxSpawnPoint.position, Quaternion.identity); //make a new box for the next batch of nuggets
-            currentBox.GetComponent<BoxMover>().fallDistance = boxSpawnPoint.position.y - transform.position.y;
-        }
+    }
+
+    //spawns a new box and moves the old box offscreen
+    public void SpawnNewBox()
+    {
+        chickensInBox = 0;
+        currentBox.GetComponent<BoxMover>().move = true;
+        Destroy(currentBox, 10); //destroy the box at some point after it moves offscreen. When isn't as important as that it gets cleaned up.
+
+        currentBox = Instantiate(boxFab, boxSpawnPoint.position, Quaternion.identity); //make a new box for the next batch of nuggets
+        currentBox.GetComponent<BoxMover>().fallDistance = boxSpawnPoint.position.y - transform.position.y;
     }
 }
