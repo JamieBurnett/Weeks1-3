@@ -51,7 +51,9 @@ public class BoxStation : MonoBehaviour
         }
     }
 
-    //spawns a new box and moves the old box offscreen
+    /// <summary>
+    /// spawns a new box and moves the old box offscreen
+    /// </summary>
     public void SpawnNewBox()
     {
         chickensInBox = 0;

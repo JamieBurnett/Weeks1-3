@@ -48,7 +48,7 @@ public class Cutter : MonoBehaviour
                 }
             } else if (step == 1) 
             {
-                foreach (GameObject i in conveyorRef.Chickens)  //then for ALL chickens in range, we change them to one of the nugget shapes from our list, but only if they currently have the default chicken sprite
+                foreach (GameObject i in conveyorRef.Chickens)  //then for ALL chickens in range, we change them to one of the nugget shapes from our list, but only if they currently have the default chicken sprite, otherwise we give them an overcut chicken sprite
                 {
                     if(Vector3.Distance(i.transform.position,transform.position) < transform.localScale.x / 2 )
                     {

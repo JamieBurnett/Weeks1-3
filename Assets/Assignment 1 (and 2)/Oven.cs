@@ -24,7 +24,7 @@ public class Oven : MonoBehaviour
         {
             if (Vector3.Distance(i.transform.position, new Vector3(transform.position.x, i.transform.position.y, transform.position.z)) < ovenWidth / 2) //checks if the  chicken is close enough to be in the oven
             {               
-                i.GetComponent<ChickenTracker>().ovenTime += Time.deltaTime*heat;
+                i.GetComponent<ChickenTracker>().ovenTime += Time.deltaTime*heat; //we adjust the time by the heat, resulting in faster or slower cook times
                
                 if(i.GetComponent<ChickenTracker>().ovenTime >= cookTime)
                 {

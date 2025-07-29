@@ -15,7 +15,7 @@ public class QualityChecker : MonoBehaviour
     {
         foreach (GameObject i in conveyorRef.Chickens) //iterate through all the active chicken
         {
-            if (Vector3.Distance(i.transform.position, new Vector3(transform.position.x, i.transform.position.y, transform.position.z)) < qaZoneWidth / 2) // we check if its in range of the quality zone
+            if (Vector3.Distance(i.transform.position, new Vector3(transform.position.x, i.transform.position.y, transform.position.z)) < qaZoneWidth / 2) // we check if its in range of the quality zone, then will check the number of cuts and cook time, adding to the score for each aspect correctly done
             {
                 int score = 0;
                 ChickenTracker nugget = i.GetComponent<ChickenTracker>();
@@ -26,6 +26,11 @@ public class QualityChecker : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// takes in the score of the chicken which is currently being judged.
+    /// sets the score text to BAD, OK, or PERFECT, and changes it's color to red, yellow, or green, respectively, based on the score
+    /// </summary>
+    /// <param name="score"></param>
     private void SetScoreText(int score)
     {
         switch (score)
